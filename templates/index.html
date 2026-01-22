@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Classifier</title>
+    <style>
+        body { font-family: sans-serif; background-color: #4ac29a; text-align: center; padding-top: 50px; }
+        .card { background: #f7fdff; display: inline-block; padding: 30px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .result { margin-top: 20px; font-size: 1.5rem; color: #007bff; font-weight: bold; }
+        .btn { background: #007bff; color:white; padding: 10px 20px; border-radius: 5px; cursor: pointer; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Image Classifier</h1>
+    <p>Upload a photo (Dog, Cat, Car, etc.)</p>
+    
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required><br><br>
+        <button type="submit" class="btn">Classify Image</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            Prediction: {{ prediction.upper() }}
+        </div>
+    {% endif %}
+
+    <p style="margin-top: 30px; font-size: 0.8rem; color: #888;"></p>
+</div>
+
+</body>
+</html>
